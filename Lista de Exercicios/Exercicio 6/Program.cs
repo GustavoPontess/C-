@@ -24,10 +24,10 @@
             diariaPromo = 0.75 * diariaNormal;
             //Calculando o total arrecadado com 80% de ocupação e diária promocional
             //!!!!nao entendi muito bem como calcular
-            mediaPromo = (0.8*75)*8*diariaPromo;
+            mediaPromo = (0.8*75)*diariaPromo;
             //Calculando o total arrecadado com 50% de ocupação e diária normal
             //!!!!nao entendi muito bem como calcular
-            mediaSemPromo = (0.5*75)*8*diariaNormal;
+            mediaSemPromo = (0.5*75)*diariaNormal;
             //Calculando a diferença entre a ocupação normal e a promocional
             lucroOuPreju = mediaPromo - mediaSemPromo;
 

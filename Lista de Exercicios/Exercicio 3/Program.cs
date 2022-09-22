@@ -14,6 +14,11 @@
             Console.WriteLine("Digite o valor do primeiro cociente:");
             //Armazenando a entrada de dados
             a = double.Parse(Console.ReadLine()?? string.Empty);
+            //verificando se A e diferente de zero 
+            if(a!=0){
+                Console.WriteLine("O valor de A tem que ser diferente de zero");
+                return;
+            }
             //Solicitando entrada de dados
             Console.WriteLine("Digite o valor do segundo cociente:");
             //Armazenando a entrada de dados

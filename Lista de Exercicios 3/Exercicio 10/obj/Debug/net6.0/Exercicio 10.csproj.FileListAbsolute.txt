@@ -1,0 +1,15 @@
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\bin\Debug\net6.0\Exercicio 10.exe
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\bin\Debug\net6.0\Exercicio 10.deps.json
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\bin\Debug\net6.0\Exercicio 10.runtimeconfig.json
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\bin\Debug\net6.0\Exercicio 10.dll
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\bin\Debug\net6.0\Exercicio 10.pdb
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\obj\Debug\net6.0\Exercicio 10.csproj.AssemblyReference.cache
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\obj\Debug\net6.0\Exercicio 10.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\obj\Debug\net6.0\Exercicio 10.AssemblyInfoInputs.cache
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\obj\Debug\net6.0\Exercicio 10.AssemblyInfo.cs
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\obj\Debug\net6.0\Exercicio 10.csproj.CoreCompileInputs.cache
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\obj\Debug\net6.0\Exercicio 10.dll
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\obj\Debug\net6.0\refint\Exercicio 10.dll
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\obj\Debug\net6.0\Exercicio 10.pdb
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\obj\Debug\net6.0\Exercicio 10.genruntimeconfig.cache
+D:\Visual Studio Code\C-\Lista de Exercicios 3\Exercicio 10\obj\Debug\net6.0\ref\Exercicio 10.dll

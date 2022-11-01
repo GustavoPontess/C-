@@ -23,7 +23,7 @@
         {
             double soma = 0;
             for (int i = 1; i <= num1; i++){
-                soma += (Math.Pow(i,2)+1.0)/(i + 3.0);
+                soma += (Math.Pow(i,2)+1.0)/(i + 3.0);            
             }
             return ($"\nO resultado de S é: {soma:F3}");
         }

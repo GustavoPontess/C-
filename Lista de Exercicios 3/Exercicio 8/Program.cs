@@ -11,10 +11,19 @@
 
             //Declarando variavel
             int num1;
-            //Solicitando entrada de dados
-            Console.WriteLine("Digite um numero inteiro e positivo: ");
-            num1 = int.Parse(Console.ReadLine()!);
-            Console.WriteLine(calculo(ref num1));
+
+            do
+            {
+                Console.Clear();
+                //Solicitando entrada de dados
+                Console.WriteLine("Digite um numero inteiro e positivo: ");
+                num1 = int.Parse(Console.ReadLine()!);
+                Console.WriteLine(calculo(ref num1));
+
+                Console.WriteLine("Press <Enter> to continue or <Esc> to exit...");
+            } while (Console.ReadKey().Key == ConsoleKey.Enter);
+            Console.Clear();
+
 
         }
 
@@ -22,8 +31,9 @@
         static string calculo(ref int num1)
         {
             double soma = 0;
-            for (int i = 1; i <= num1; i++){
-                soma += (Math.Pow(i,2)+1.0)/(i + 3.0);
+            for (int i = 1; i <= num1; i++)
+            {
+                soma += (Math.Pow(i, 2) + 1.0) / (i + 3.0);
             }
             return ($"\nO resultado de S é: {soma:F3}");
         }

@@ -15,7 +15,7 @@
             //Armazenando a entrada de dados
             a = double.Parse(Console.ReadLine()?? string.Empty);
             //verificando se A e diferente de zero 
-            if(a!=0){
+            if(a==0){
                 Console.WriteLine("O valor de A tem que ser diferente de zero");
                 return;
             }

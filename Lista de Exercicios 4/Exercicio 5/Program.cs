@@ -8,8 +8,7 @@
             // Depois crie um procedimento que leia as tentativas do usuário para acertar um 
             // destes números. O programa só deve parar quando o usuário acertar um número sorteado.
 
-            int[] numSort = sorteia();
-            leTentativa(numSort);
+            leTentativa(sorteia());
         }
         //Criando uma função que retorna um vetor
         static int[] sorteia()

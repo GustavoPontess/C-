@@ -1,0 +1,3 @@
+faturamento anual: R$12000,00
+valor ganho com multas no mes: R$60,00
+valor gasto com a manutencao anual: R$432,00

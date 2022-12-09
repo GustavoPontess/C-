@@ -30,6 +30,7 @@
                     M[x, y] = R.Next(0, 10);
                 }
             }
+            //calcula(M);
             imprime(M);
             Console.WriteLine($"A Soma da linha 4               : {calculaA(M)}");
             Console.WriteLine($"A Soma da coluna 2              : {calculaB(M)}");
@@ -76,14 +77,13 @@
         {
             int resultado = 0;
             int cont = 4;
-
             for (int x = 0; x < 5; x++)
             {
                 for (int y = 0; y < 5; y++)
                 {
                     if (y == cont)
                     {
-                        resultado += M[x, cont];
+                        resultado += M[x, y];
                         cont--;
                     }
                 }
@@ -115,6 +115,7 @@
                 }
             }
         }
+        
         // static int[] calcula(int[,] M)
         // {
 
@@ -142,24 +143,24 @@
         //     {
         //         resultado[4] += item;
         //     }
-        //     // for (int x = 0; x < 5; x++)
-        //     // {
-        //     //     for (int y = 0; y < 5; y++)
-        //     //     {
-        //     //         if (y == 4)
-        //     //         {
-        //     //             Console.WriteLine(M[x, y]);
-        //     //         }
-        //     //         else
-        //     //         {
-        //     //             Console.Write(M[x, y] + " ");
-        //     //         }
-        //     //     }
-        //     // }
-        //     // foreach (var item in resultado)
-        //     // {
-        //     //     Console.WriteLine(item);
-        //     // }
+        //     for (int x = 0; x < 5; x++)
+        //     {
+        //         for (int y = 0; y < 5; y++)
+        //         {
+        //             if (y == 4)
+        //             {
+        //                 Console.WriteLine(M[x, y]);
+        //             }
+        //             else
+        //             {
+        //                 Console.Write(M[x, y] + " ");
+        //             }
+        //         }
+        //     }
+        //     foreach (var item in resultado)
+        //     {
+        //         Console.WriteLine(item);
+        //     }
         //     return (resultado);
         // }
     }

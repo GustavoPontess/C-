@@ -1,0 +1,9 @@
+A soma dos divisores do numero 10 e: 18
+A soma dos divisores do numero 8 e: 15
+a
+s
+d
+f
+q
+A soma dos divisores do numero 20 e: 42
+A soma dos divisores do numero 5 e: 6

@@ -11,7 +11,7 @@
             // - A temperatura média;
             // - O número de dias nos quais a temperatura foi inferior a temperatura média.
 
-            int tVetor = 31, temp = 0, menorTemp=40, maiorTemp=15, media=0, total=0;
+            int tVetor = 31, temp = 0, menorTemp=0, maiorTemp=0, media=0, total=0;
             bool pass = true;
             int[] tempOutubro = new int[tVetor];
             Random R = new Random();
@@ -21,12 +21,18 @@
                 do
                 {
                     pass = true;
-                    Console.WriteLine($"Digite a temperatura do {i + 1}° dia");
+                    //Console.WriteLine($"Digite a temperatura do {i + 1}° dia");
                     //temp = int.Parse(Console.ReadLine()!);
-                    temp = R.Next(15,40);
+                    temp = R.Next(0,40);
+                    //Console.WriteLine(temp);
                     if (temp>=15 && temp<=40)
                     {
                         tempOutubro[i] = temp;
+                        if (i==0)
+                        {
+                         menorTemp = temp;
+                         maiorTemp = temp;   
+                        }
                         if(menorTemp>temp){
                             menorTemp = temp;
                         }else if(maiorTemp<temp){
@@ -34,26 +40,26 @@
                         }
                         total+=temp;
                         pass = false;
-                        Console.WriteLine("Temperatura registrada");
+                        //Console.WriteLine("Temperatura registrada");
                     }else{
-                        Console.WriteLine("A temperatura do mes de Outubro\nnão deve ser inferior a 15°C e\nnem superior a 40°C");
+                        //Console.WriteLine("A temperatura do mes de Outubro\nnão deve ser inferior a 15°C e\nnem superior a 40°C");
                     }
                 } while (pass);
             }
             Console.Clear();
-            // foreach (var item in tempOutubro)
-            // {
-            //     Console.WriteLine($"Temperatura: {item}");
-            // }
-            media = total/31;
-            total = 0;
             foreach (var item in tempOutubro)
             {
-                if (item<media)
-                {
-                    total++;
-                }
+                Console.WriteLine($"Temperatura: {item}");
             }
+            media = total/31;
+            total = 0;
+            // foreach (var item in tempOutubro)
+            // {
+            //     if (item<media)
+            //     {
+            //         total++;
+            //     }
+            // }
             Console.WriteLine($"A menor temperatura do mes foi: {menorTemp}°C, e a maior foi: {maiorTemp}°C;\nTendo uma temperatura media de: {media}°C\nQuantidade de dias com a temperatura a baixo da media: {total}.");
         }
     }

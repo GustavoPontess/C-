@@ -17,22 +17,25 @@
                 for (int y = 0; y < val; y++)
                 {
                     M[x, y] = R.Next(0, 10);
-
+                    // if (x>y)
+                    // {
+                    //     soma+=M[x,y];
+                    // }
                     if (y == (val - 1))
                     {
                         if (x == y)
                         {
                             Console.WriteLine(M[x, y]);
-                        }
-                        Console.WriteLine("   ");
+                        }else{
+                        Console.WriteLine("   ");}
                     }
                     else
                     {
                         if (x == y)
                         {
                             Console.Write(M[x, y]);
-                        }
-                        Console.Write("   ");
+                        }else{
+                        Console.Write("   ");}
                     }
                 }
             }
@@ -44,17 +47,18 @@
                     soma += M[x, cont];
                     cont++;
                 }
-                // for (int y = 0; y < val; y++)
-                // {
-                //     if (y == (val - 1))
-                //     {
-                //         Console.WriteLine(M[x, y]);
-                //     }
-                //     else
-                //     {
-                //         Console.Write(M[x, y] + "  ");
-                //     }
-                // }
+                for (int y = 0; y < val; y++)
+                {
+                    
+                    if (y == (val - 1))
+                    {
+                        Console.WriteLine(M[x, y]);
+                    }
+                    else
+                    {
+                        Console.Write(M[x, y] + "  ");
+                    }
+                }
             }
             Console.WriteLine($"A soma dos numeros abaixo da diagonal e: {soma}");
         }

@@ -11,7 +11,7 @@ namespace Exercicio_10
             bool sair = true;
             int linha = 31, coluna = 5;
             string[] produtos = new string[] { };
-            string[,] vendasMes = new string[linha,coluna];
+            string[,] vendasMes = new string[linha, coluna];
             do
             {
                 switch (menu())
@@ -40,7 +40,8 @@ namespace Exercicio_10
                         break;
                     case 4:
                         // chamar função
-                        relatorioEstoque();
+                        produtos = importarProdutos();
+                        relatorioEstoque(produtos);
                         Console.Clear();
                         break;
                     case 5:
@@ -72,11 +73,19 @@ namespace Exercicio_10
 5 -- Criar arquivo de vendas
 6 -- Sair");
             Console.Write("Digite um numero: ");
-            op = int.Parse(Console.ReadLine()!);
+            try
+            {
+                op = int.Parse(Console.ReadLine()!);
+            }
+            catch (System.Exception)
+            {
+                op = 9;
+                // caso o usuario digite letra ou qualquer outra coisa que gere erro ira trocar para 9 e exiber a mensagem
+                // de opção invalida
+            }
             Console.Clear();
             return (op);
         }
-
         private static string[] importarProdutos()
         {
             string[] produtos;
@@ -96,7 +105,6 @@ namespace Exercicio_10
             Console.Clear();
             return (produtos);
         }
-
         private static string[,] registrarVenda(string[] produtos, string[,] vendas)
         {
             int id = 0, dia = 0, prod = 0, total = 0, quantidade = 0;
@@ -104,26 +112,24 @@ namespace Exercicio_10
             string[,] vendasMes = vendas;
             do
             {
-                Console.Clear();
                 bool pass = true;
                 Console.Clear();
                 do
                 {
+                    Console.WriteLine("====Registrar Venda====");
+                    Console.Write("Digite o N° do produto: ");
                     try
                     {
-                        Console.WriteLine("====Registrar Venda====");
-                        Console.Write("Digite o N° do produto: ");
                         id = int.Parse(Console.ReadLine()!);
-                        if (id >= 1 && id <= 4)
-                        {
-                            pass = false;
-                        }
-                        else
-                        {
-                            Console.Clear();
-                            Console.WriteLine("Dige um numero valido!! 1 a 4");
-                        }
-
+                    }
+                    catch (System.Exception)
+                    {
+                        id = 5; // caso digite qualquer coisa que nao seja numero ira colocar o id como 5 nao ira passar no if seguinte
+                        // fazendo com que mostre a mesagem de digitte um numero valido;
+                    }
+                    if (id >= 1 && id <= 4)
+                    {
+                        pass = false;
                         for (int i = 0; i < produtos.Length; i += 3)
                         {
                             if (produtos[i].Contains($"id: {id - 1}"))
@@ -134,78 +140,82 @@ namespace Exercicio_10
                             }
                         }
                     }
-                    catch (System.Exception)
+                    else
                     {
-                        throw new ArgumentException("O valor informado não é válido.");
-                    }
-                } while (pass);
-                Console.Clear();
-
-                pass = true;
-                do
-                {
-                    try
-                    {
-                        Console.WriteLine("====Registrar Venda====");
-                        Console.Write("Digite dia do mês: ");
-                        dia = int.Parse(Console.ReadLine()!);
-                        if (dia <= 31 && dia >= 1)
-                        {
-                            pass = false;
-                        }
-                        else
-                        {
-                            Console.Clear();
-                            Console.WriteLine("O dia do mês não e valido!!");
-                        }
-                    }
-                    catch (System.Exception)
-                    {
-                        throw new ArgumentException("O valor informado não é válido.");
-                    }
-
-                } while (pass);
-                Console.Clear();
-
-                pass = true;
-                do
-                {
-                    try
-                    {
-                        Console.WriteLine("====Registrar Venda====");
-                        Console.Write("Quatidade de vendas: ");
-                        quantidade = int.Parse(Console.ReadLine()!);
                         Console.Clear();
+                        Console.WriteLine("Dige um numero valido!! 1 a 4");
+                    }
+                } while (pass);
+                Console.Clear();
 
-                        if (quantidade <= total)
-                        {
-                            vendasMes[(dia - 1), id] = Convert.ToString(quantidade);
-                            pass = false;
-                            StreamWriter sw = new StreamWriter("dbProdutos.txt", false, Encoding.ASCII);
-                            for (int x = 0; x < 12; x += 3)
-                            {
-                                if (prod == x)
-                                {
-                                    sw.WriteLine($"{produtos[prod]};{produtos[prod + 1]};total: {total - quantidade};");
-                                }
-                                else
-                                {
-                                    sw.WriteLine($"{produtos[x]};{produtos[x + 1]};{produtos[x + 2]};");
-                                }
-                            }
-                            sw.Close();
-                            produtos = importarProdutos();
-                        }
-                        else
-                        {
-                            Console.WriteLine("Quantidade de vendas maior que quantidade em estoque!");
-                            Console.WriteLine(total);
-
-                        }
+                pass = true;
+                do
+                {
+                    Console.WriteLine("====Registrar Venda====");
+                    Console.Write("Digite dia do mês: ");
+                    try
+                    {
+                        dia = int.Parse(Console.ReadLine()!);
                     }
                     catch (System.Exception)
                     {
-                        throw new ArgumentException("O valor informado não é válido.");
+                        dia = 32; //caso o usuario digite algo que nao sejam numeros ira trocar setar o dia para 32
+                        // fazendo com que nao passe no if seguinte assim exibindo a mensagem de o dia nao e valido
+                    }
+                    if (dia <= 31 && dia >= 1)
+                    {
+                        pass = false;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("O dia do mês não e valido!!");
+                    }
+
+                } while (pass);
+                Console.Clear();
+
+                pass = true;
+                do
+                {
+                    Console.WriteLine("====Registrar Venda====");
+                    Console.Write("Quatidade de vendas: ");
+                    try
+                    {
+                        quantidade = int.Parse(Console.ReadLine()!);
+                    }
+                    catch (System.Exception)
+                    {
+                        quantidade = total+1; 
+                        // caso o usuario digite qualquer coisa que nao seja numero nao ira passar no proximo if
+                        // pois estou atribuindo a variavel de quantidade o proprio total +1
+                        // fazendo com que assim monstre a mensagem de erro quantidade maior que quantidade em estoque;
+                    }
+                    Console.Clear();
+
+                    if (quantidade <= total)
+                    {
+                        vendasMes[(dia - 1), id] = Convert.ToString(quantidade);
+                        pass = false;
+                        StreamWriter sw = new StreamWriter("dbProdutos.txt", false, Encoding.ASCII);
+                        for (int x = 0; x < 12; x += 3)
+                        {
+                            if (prod == x)
+                            {
+                                sw.WriteLine($"{produtos[prod]};{produtos[prod + 1]};total: {total - quantidade};");
+                            }
+                            else
+                            {
+                                sw.WriteLine($"{produtos[x]};{produtos[x + 1]};{produtos[x + 2]};");
+                            }
+                        }
+                        sw.Close();
+                        produtos = importarProdutos();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Quantidade de vendas maior que quantidade em estoque!");
+                        Console.WriteLine(total);
                     }
 
                 } while (pass);
@@ -214,19 +224,15 @@ namespace Exercicio_10
             } while (Console.ReadKey().Key == ConsoleKey.Enter);
             return (vendasMes);
         }
-
         private static void relatorioVendas(string[,] vendasMes)
         {
             int linha = 31, coluna = 5;
             do
             {
-                for (int i = 0; i < linha; i++)
-                {
-                    vendasMes[i, 0] = $"Dia {i + 1}\t";
-                }
                 Console.WriteLine($"Dia/produto\t| Produto A \t| Produto B \t| Produto C \t| Produto D\t|");
                 for (int i = 0; i < linha; i++)
                 {
+                    vendasMes[i, 0] = $"Dia {i + 1}\t";
                     for (int j = 0; j < coluna; j++)
                     {
                         if (j != 0)
@@ -243,23 +249,13 @@ namespace Exercicio_10
                 Console.WriteLine("Pressione <Esc> para voltar ao menu ou <Enter> para mostrar o relatorio novamente...");
             } while (Console.ReadKey().Key == ConsoleKey.Enter);
         }
-        private static void relatorioEstoque()
+        private static void relatorioEstoque(string[] produtos)
         {
             do
             {
                 int cont = 0, linha = 4, coluna = 2;
-                string[] produtos;
                 string[,] prod = new string[linha, coluna];
-                string produto = "";
-                StreamReader sr = new StreamReader("dbProdutos.txt");
-                String line = sr.ReadLine()!;
-                while (line != null)
-                {
-                    produto += line;
-                    line = sr.ReadLine()!;
-                }
-                sr.Close();
-                produtos = produto.Split(';');
+
                 for (int i = 1; i < produtos.Length; i += 3)
                 {
                     prod[cont, 0] = produtos[i];
@@ -282,11 +278,10 @@ namespace Exercicio_10
                 Console.WriteLine("Pressione <Esc> para voltar ao menu ou <Enter> para mostrar o relatorio novamente...");
             } while (Console.ReadKey().Key == ConsoleKey.Enter);
         }
-
         private static void criarArquivoVendas(string[] produtos, string[,] vendasMes)
         {
-            int coluna = 5, prod1 = 0, prod2 = 0, prod3 = 0, prod4 = 0;
-            for (int i = 0; i < coluna; i++)
+            int linha = 31, prod1 = 0, prod2 = 0, prod3 = 0, prod4 = 0;
+            for (int i = 0; i < linha; i++)
             {
                 if (vendasMes[i, 1] != null)
                 {

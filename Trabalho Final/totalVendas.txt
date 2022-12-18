@@ -1,4 +1,4 @@
-nome: Cola;total:1;
-nome: Caderno;total:2;
-nome: Fita;total:3;
-nome: Lapis;total:4;
+nome: Cola;total:0;
+nome: Caderno;total:0;
+nome: Fita;total:0;
+nome: Lapis;total:0;

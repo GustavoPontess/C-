@@ -60,7 +60,6 @@ namespace Exercicio_10
                 }
             } while (sair);
         }
-
         private static int menu()
         {
             int op = 0;

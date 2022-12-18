@@ -21,10 +21,10 @@
                 do
                 {
                     pass = true;
-                    //Console.WriteLine($"Digite a temperatura do {i + 1}° dia");
+                    Console.WriteLine($"Digite a temperatura do {i + 1}° dia");
                     //temp = int.Parse(Console.ReadLine()!);
                     temp = R.Next(0,40);
-                    //Console.WriteLine(temp);
+                    Console.WriteLine(temp);
                     if (temp>=15 && temp<=40)
                     {
                         tempOutubro[i] = temp;
@@ -40,9 +40,9 @@
                         }
                         total+=temp;
                         pass = false;
-                        //Console.WriteLine("Temperatura registrada");
+                        Console.WriteLine("Temperatura registrada");
                     }else{
-                        //Console.WriteLine("A temperatura do mes de Outubro\nnão deve ser inferior a 15°C e\nnem superior a 40°C");
+                        Console.WriteLine("A temperatura do mes de Outubro\nnão deve ser inferior a 15°C e\nnem superior a 40°C");
                     }
                 } while (pass);
             }

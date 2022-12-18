@@ -1,0 +1,4 @@
+id: 0;nome: Cola;total: 24;
+id: 1;nome: Caderno;total: 19;
+id: 2;nome: Fita;total: 117;
+id: 3;nome: Lapis;total: 102;

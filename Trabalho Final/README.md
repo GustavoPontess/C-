@@ -76,9 +76,3 @@ Faça um programa gerencie o controle de vendas de quatro produtos. Para atender
 > Comente o código indicando as principais decisões sobre os comandos escolhidos.
 > É importante criar métodos para as ações a serem realizadas.
 > Explore os comandos vistos em salas de aula.
-
-# Resolução do trabalho:
-
-## 1° Fazer o menu
-
-

@@ -1,0 +1,15 @@
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\bin\Debug\net6.0\Exercicio 1.exe
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\bin\Debug\net6.0\Exercicio 1.deps.json
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\bin\Debug\net6.0\Exercicio 1.runtimeconfig.json
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\bin\Debug\net6.0\Exercicio 1.dll
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\bin\Debug\net6.0\Exercicio 1.pdb
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\obj\Debug\net6.0\Exercicio 1.csproj.AssemblyReference.cache
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\obj\Debug\net6.0\Exercicio 1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\obj\Debug\net6.0\Exercicio 1.AssemblyInfoInputs.cache
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\obj\Debug\net6.0\Exercicio 1.AssemblyInfo.cs
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\obj\Debug\net6.0\Exercicio 1.csproj.CoreCompileInputs.cache
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\obj\Debug\net6.0\Exercicio 1.dll
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\obj\Debug\net6.0\refint\Exercicio 1.dll
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\obj\Debug\net6.0\Exercicio 1.pdb
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\obj\Debug\net6.0\Exercicio 1.genruntimeconfig.cache
+C:\Users\gutnp\projetos\C-\POO\Exercicio 1\obj\Debug\net6.0\ref\Exercicio 1.dll

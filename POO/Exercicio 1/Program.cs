@@ -26,37 +26,20 @@
 
 
             //Declarando variaveis
-            double a = 0, b = 0, c = 0, area = 0, p = 0;
-
+            Triangulo x;
             do
             {
+                x = new Triangulo();
                 Console.Clear();
                 Console.WriteLine("Informe 3 medidas para obter informações sobre o triângulo: ");
                 Console.Write("1° medida: ");
-                a = double.Parse(Console.ReadLine()!);
-                Console.Write("2° medida: ");
-                b = double.Parse(Console.ReadLine()!);
-                Console.Write("3° medida: ");
-                c = double.Parse(Console.ReadLine()!);
+                x.A = double.Parse(Console.ReadLine()!);
+                Console.Write("\n2° medida: ");
+                x.B = double.Parse(Console.ReadLine()!);
+                Console.Write("\n3° medida: ");
+                x.C = double.Parse(Console.ReadLine()!);
                 Console.Clear();
-                if (a + b >= c && c + b >= a && c + a >= b)
-                {
-                    Console.Write("\nAs medidas usadas formam um triângulo: ");
-                    p = (a + b + c) / 2;
-                    area = Math.Sqrt(p*( p - a)*( p - b)*( p - c));
-                    if (a == b && b == c){
-                        Console.Write("Equilátero\t");
-                    }else if (a == b || b == c || c == a){
-                        Console.Write("Isósceles\t");
-                    }else{
-                        Console.Write("Escaleno\t");
-                    }
-                    Console.WriteLine($"Área: {area:F2}\n");
-                }else{
-                    Console.WriteLine("\nAs medidas usadas não formam um triângulo.\n");
-                }
-
-                
+                Console.Write(x.QualTriangulo());
 
                 Console.WriteLine("Press <Enter> to continue or <Esc> to exit...");
             } while (Console.ReadKey().Key == ConsoleKey.Enter);

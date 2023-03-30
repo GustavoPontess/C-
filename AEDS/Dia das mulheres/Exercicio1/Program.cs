@@ -16,9 +16,9 @@
             }
             else
             {
-                resp = fatorial * fatorial(fatorial - 1);
+                resp = fatorial * Fatorial(fatorial - 1);
             }
-            return res;
+            return resp;
         }
     }
 }

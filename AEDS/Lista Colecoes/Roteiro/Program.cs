@@ -7,7 +7,7 @@ namespace Roteiro
         static void Main(string[] args)
         {
             // 1. Crie o ArrayList AL1 sem definir a capacidade inicial.
-            Console.WriteLine("\n=============QUESTAO 1==================\n");
+            Console.WriteLine("\n=============QUESTAO 1==================\nCrie o ArrayList AL1 sem definir a capacidade inicial.");
             ArrayList AL1 = new ArrayList();
 
             // 2. Imprima a capacidade e a quantidade de elementos.
@@ -15,7 +15,7 @@ namespace Roteiro
             Console.WriteLine($"AL1.Capacity = {AL1.Capacity} | AL1.Count = {AL1.Count}");
 
             // 3. Adicione os números 19, 7 e 11.
-            Console.WriteLine("\n=============QUESTAO 3==================\n");
+            Console.WriteLine("\n=============QUESTAO 3==================\nAdicione os números 19, 7 e 11.");
             AL1.Add(19);
             AL1.Add(7);
             AL1.Add(11);
@@ -25,7 +25,7 @@ namespace Roteiro
             Console.WriteLine($"AL1.Capacity = {AL1.Capacity} | AL1.Count = {AL1.Count}");
 
             // 5. Adicione os números 5, 7 e 17.
-            Console.WriteLine("\n=============QUESTAO 5==================\n");
+            Console.WriteLine("\n=============QUESTAO 5==================\nAdicione os números 5, 7 e 17.");
             // podemos inserir um array de itens de uma só vez usando o método AddRange():
             int[] numeros = new int[] { 5, 7, 17 };
             AL1.AddRange(numeros);
@@ -44,7 +44,7 @@ namespace Roteiro
             }
 
             // 8. Adicione o número 5 nas posições 0, 2 e 10. Ocorreu algum problema? 
-            Console.WriteLine("\n=============QUESTAO 8==================\n");
+            Console.WriteLine("\n=============QUESTAO 8==================\nAdicione o número 5 nas posições 0, 2 e 10");
             // Se sim, anote qual foi o motivo e resolva esse problema.
 
             // Pelo que entendi do erro o Arraylist so aceita adicionar elementos ao final da lista,
@@ -68,22 +68,22 @@ namespace Roteiro
             }
 
             // 10. Imprima a primeira e a última posição que contém o número 7.
-            Console.WriteLine("\n=============QUESTAO 10==================\n");
+            Console.WriteLine("\n=============QUESTAO 10==================\nImprima a primeira e a última posição que contém o número 7.");
             Console.WriteLine($"Primeira: {AL1.IndexOf(7)} | Ultima: {AL1.LastIndexOf(7)}");
 
             // 11. Imprima todas as posições que contém o número 5.
-            Console.WriteLine("\n=============QUESTAO 11==================\n");
+            Console.WriteLine("\n=============QUESTAO 11==================\nImprima todas as posições que contém o número 5");
             for (int i = 0; i < AL1.Count; i++)
             {
                 // (int)AL1[i] => Converter Objeto em Int com o TypeCasting 
                 if (AL1[i] != null && (int)AL1[i] == 5)
                 {
-                    Console.WriteLine($"Posições: {i}");
+                    Console.WriteLine($"Posição: {i}");
                 }
             }
 
             //12. Adicione os números 5, 23, 47, 5 e 5.
-            Console.WriteLine("\n=============QUESTAO 12==================\n");
+            Console.WriteLine("\n=============QUESTAO 12==================\nAdicione os números 5, 23, 47, 5 e 5.");
             int[] numeros1 = new int[] { 5, 23, 47, 5, 5 };
             AL1.AddRange(numeros1);
 
@@ -98,11 +98,11 @@ namespace Roteiro
 
             // 14. Imprima as posições do número 5 retornada pelos métodos: BinarySeach(),
             // IndexOf() e LastIndexOf()
-            Console.WriteLine("\n=============QUESTAO 14==================\n");
+            Console.WriteLine("\n=============QUESTAO 14==================\nPosições do número 5");
             Console.WriteLine($"BinarySearch: {AL1.BinarySearch(5)} | IndexOf: {AL1.IndexOf(5)} | LastIndexOf: {AL1.LastIndexOf(5)}");
 
             // 15. Ordene os elementos do ArrayList.
-            Console.WriteLine("\n=============QUESTAO 15==================\n");
+            Console.WriteLine("\n=============QUESTAO 15==================\nOrdene os elementos do ArrayList.");
             AL1.Sort();
 
             // 16. Imprima os elementos do ArrayList (use o comando que você desejar).
@@ -113,7 +113,7 @@ namespace Roteiro
             }
 
             // 17. Remova o número 23.
-            Console.WriteLine("\n=============QUESTAO 17==================\n");
+            Console.WriteLine("\n=============QUESTAO 17==================\nRemova o número 23.");
             AL1.Remove(23);
 
             // 18. Imprima os elementos do ArrayList (use o comando que você desejar).
@@ -124,7 +124,7 @@ namespace Roteiro
             }
 
             // 19. Remova o elemento da posição 7.
-            Console.WriteLine("\n=============QUESTAO 19==================\n");
+            Console.WriteLine("\n=============QUESTAO 19==================\nRemova o elemento da posição 7.");
             AL1.RemoveAt(7);
 
             // 20. Imprima os elementos do ArrayList (use o comando que você desejar).
@@ -134,7 +134,7 @@ namespace Roteiro
                 Console.WriteLine(item);
             }
             // 21. Remova os elementos das posições 2, 3 e 4.
-            Console.WriteLine("\n=============QUESTAO 21==================\n");
+            Console.WriteLine("\n=============QUESTAO 21==================\nRemova os elementos das posições 2, 3 e 4.");
             AL1.RemoveRange(2, 3);
 
             // 22. Imprima os elementos do ArrayList (use o comando que você desejar).
@@ -145,7 +145,7 @@ namespace Roteiro
             }
 
             // 23. Inverta os elementos do ArrayList.
-            Console.WriteLine("\n=============QUESTAO 23==================\n");
+            Console.WriteLine("\n=============QUESTAO 23==================\nInverta os elementos do ArrayList");
             AL1.Reverse();
 
             // 24. Imprima os elementos do ArrayList (use o comando que você desejar).
@@ -156,7 +156,7 @@ namespace Roteiro
             }
 
             // 25. Remova todos os elementos do ArrayList.
-            Console.WriteLine("\n=============QUESTAO 25==================\n");
+            Console.WriteLine("\n=============QUESTAO 25==================\nRemova todos os elementos do ArrayList");
             AL1.Clear();
 
             // 26. Imprima os elementos do ArrayList (use o comando que você desejar).

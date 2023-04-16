@@ -72,7 +72,103 @@ namespace Roteiro
             Console.WriteLine($"Primeira: {AL1.IndexOf(7)} | Ultima: {AL1.LastIndexOf(7)}");
 
             // 11. Imprima todas as posições que contém o número 5.
+            Console.WriteLine("\n=============QUESTAO 11==================\n");
+            for (int i = 0; i < AL1.Count; i++)
+            {
+                // (int)AL1[i] => Converter Objeto em Int com o TypeCasting 
+                if (AL1[i] != null && (int)AL1[i] == 5)
+                {
+                    Console.WriteLine($"Posições: {i}");
+                }
+            }
 
+            //12. Adicione os números 5, 23, 47, 5 e 5.
+            Console.WriteLine("\n=============QUESTAO 12==================\n");
+            int[] numeros1 = new int[] { 5, 23, 47, 5, 5 };
+            AL1.AddRange(numeros1);
+
+            //13. Imprima os elementos do ArrayList usando o comando while.
+            Console.WriteLine("\n=============QUESTAO 13==================\n");
+            int n = 0;
+            while (AL1.Count > n)
+            {
+                Console.WriteLine(AL1[n]);
+                n++;
+            }
+
+            // 14. Imprima as posições do número 5 retornada pelos métodos: BinarySeach(),
+            // IndexOf() e LastIndexOf()
+            Console.WriteLine("\n=============QUESTAO 14==================\n");
+            Console.WriteLine($"BinarySearch: {AL1.BinarySearch(5)} | IndexOf: {AL1.IndexOf(5)} | LastIndexOf: {AL1.LastIndexOf(5)}");
+
+            // 15. Ordene os elementos do ArrayList.
+            Console.WriteLine("\n=============QUESTAO 15==================\n");
+            AL1.Sort();
+
+            // 16. Imprima os elementos do ArrayList (use o comando que você desejar).
+            Console.WriteLine("\n=============QUESTAO 16==================\n");
+            foreach (var item in AL1)
+            {
+                Console.WriteLine(item);
+            }
+
+            // 17. Remova o número 23.
+            Console.WriteLine("\n=============QUESTAO 17==================\n");
+            AL1.Remove(23);
+
+            // 18. Imprima os elementos do ArrayList (use o comando que você desejar).
+            Console.WriteLine("\n=============QUESTAO 18==================\n");
+            foreach (var item in AL1)
+            {
+                Console.WriteLine(item);
+            }
+
+            // 19. Remova o elemento da posição 7.
+            Console.WriteLine("\n=============QUESTAO 19==================\n");
+            AL1.RemoveAt(7);
+
+            // 20. Imprima os elementos do ArrayList (use o comando que você desejar).
+            Console.WriteLine("\n=============QUESTAO 20==================\n");
+            foreach (var item in AL1)
+            {
+                Console.WriteLine(item);
+            }
+            // 21. Remova os elementos das posições 2, 3 e 4.
+            Console.WriteLine("\n=============QUESTAO 21==================\n");
+            AL1.RemoveRange(2, 3);
+
+            // 22. Imprima os elementos do ArrayList (use o comando que você desejar).
+            Console.WriteLine("\n=============QUESTAO 22==================\n");
+            foreach (var item in AL1)
+            {
+                Console.WriteLine(item);
+            }
+
+            // 23. Inverta os elementos do ArrayList.
+            Console.WriteLine("\n=============QUESTAO 23==================\n");
+            AL1.Reverse();
+
+            // 24. Imprima os elementos do ArrayList (use o comando que você desejar).
+            Console.WriteLine("\n=============QUESTAO 24==================\n");
+            foreach (var item in AL1)
+            {
+                Console.WriteLine(item);
+            }
+
+            // 25. Remova todos os elementos do ArrayList.
+            Console.WriteLine("\n=============QUESTAO 25==================\n");
+            AL1.Clear();
+
+            // 26. Imprima os elementos do ArrayList (use o comando que você desejar).
+            Console.WriteLine("\n=============QUESTAO 26==================\n");
+            foreach (var item in AL1)
+            {
+                Console.WriteLine(item);
+            }
+
+            // 27. Imprima a capacidade e a quantidade de elementos
+            Console.WriteLine("\n=============QUESTAO 27==================\n");
+            Console.WriteLine($"AL1.Capacity = {AL1.Capacity} | AL1.Count = {AL1.Count}");
         }
     }
 }

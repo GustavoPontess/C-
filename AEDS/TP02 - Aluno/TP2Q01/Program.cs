@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Exercicio_1
+namespace TP2Q01
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string leitura = Console.ReadLine();
+            string? leitura = Console.ReadLine();
             while (leitura != "FIM")
             {
                 Jogador Jogadores = new Jogador();

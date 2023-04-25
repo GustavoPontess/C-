@@ -149,7 +149,6 @@ namespace Lista_de_exercicios
             Console.ReadKey();
             Console.Clear();
         }
-
         static void Questao2()
         {
             Console.WriteLine("====>> Questão 2");
@@ -217,7 +216,7 @@ namespace Lista_de_exercicios
             Fila Que = new Fila();
             Pilha Sta = new Pilha();
 
-            for (int i = 0; i < 100; i += 2)
+            for (int i = 2; i < 100; i += 2)
             {
                 List.Inserir(i);
                 Que.Inserir(i);
@@ -246,7 +245,7 @@ namespace Lista_de_exercicios
             Fila Que = new Fila();
             Pilha Sta = new Pilha();
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 1; i <= 100; i++)
             {
                 List.Inserir(i);
                 Que.Inserir(i);
@@ -275,7 +274,7 @@ namespace Lista_de_exercicios
             Fila Que = new Fila();
             Pilha Sta = new Pilha();
 
-            for (int i = 0; i < 100; i += 2)
+            for (int i = 1; i <= 100; i += 2)
             {
                 List.Inserir(i);
                 Que.Inserir(i);
@@ -363,7 +362,6 @@ namespace Lista_de_exercicios
             Console.ReadKey();
             Console.Clear();
         }
-
         static void Questao11()
         {
             Console.WriteLine("====>> Questão 11");
@@ -483,7 +481,7 @@ namespace Lista_de_exercicios
             List.Inserir(entrada);
             Que.Inserir(entrada);
             Sta.Inserir(entrada);
-            
+
 
             Console.WriteLine("===== ArrayList =====");
             Console.WriteLine($"Soma: {List.QuantosPositivos()}");
@@ -496,15 +494,10 @@ namespace Lista_de_exercicios
             // basic use of "Console.ReadKey()" method
             Console.ReadKey();
             Console.Clear();
-
-            Console.WriteLine("\npressione qualquer tecla para voltar ao menu...");
-            // basic use of "Console.ReadKey()" method
-            Console.ReadKey();
-            Console.Clear();
         }
         static void Questao17()
         {
-             Console.WriteLine("====>> Questão 17");
+            Console.WriteLine("====>> Questão 17");
             Lista List = new Lista();
             Fila Que = new Fila();
             Pilha Sta = new Pilha();
@@ -525,12 +518,11 @@ namespace Lista_de_exercicios
             Console.WriteLine("\n=====   Stack   =====");
             Sta.ContOcorrencia(5);
             Sta.ContOcorrencia(13);
+            
             Console.WriteLine("\npressione qualquer tecla para voltar ao menu...");
             // basic use of "Console.ReadKey()" method
             Console.ReadKey();
             Console.Clear();
         }
-
-
     }
 }

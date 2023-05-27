@@ -23,19 +23,22 @@ namespace TP2Q02
         }
         public class Jogador
         {
-            public string? nome;
-            ArrayList AL = new ArrayList();
+            public string nome = "";
+            string[] nomes = new string[20];
+            int n = 0;
             public void imprimir()
             {
-                for (int i = 0; i < AL.Count; i++)
+                for (int i = 0; i < nomes.Length; i++)
                 {
-                    Console.WriteLine(AL[i]);
+                    Console.WriteLine(nomes[i]);
                 }
             }
-            public string pesquisa(string leitura){
-                for (int i = 0; i < AL.Count; i++)
+            public string pesquisa(string leitura)
+            {
+                for (int i = 0; i < nomes.Length; i++)
                 {
-                    if((string)AL[i] == leitura){
+                    if ((string)nomes[i] == leitura)
+                    {
                         return "SIM";
                     }
                 }
@@ -54,8 +57,9 @@ namespace TP2Q02
                     nome += leitura[i];
                     i++;
                 }
-                AL.Add(nome);
+                nomes[n] = nome;
                 nome = "";
+                n++;
             }
         }
     }

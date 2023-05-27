@@ -24,19 +24,18 @@ namespace TP2Q03
         public class Jogador
         {
             public string nome;
-            ArrayList AL = new ArrayList();
+            string[] nomes = new string[20];
+            int n = 0;
             public void imprimir()
             {
-                for (int i = 0; i < AL.Count; i++)
+                for (int i = 0; i < nomes.Length; i++)
                 {
-                    Console.WriteLine(AL[i]);
+                    Console.WriteLine(nomes[i]);
                 }
             }
             public string pesquisa(string leitura)
             {
-                int dir = AL.Count - 1, esq = 0, meio;
-                AL.Sort();
-                string[] nomes = (string[])AL.ToArray(typeof( string ));
+                int dir = n - 1, esq = 0, meio;
                 while (esq <= dir)
                 {
                     meio = (esq + dir) / 2;
@@ -68,8 +67,9 @@ namespace TP2Q03
                     nome += leitura[i];
                     i++;
                 }
-                AL.Add(nome);
+                nomes[n] = nome;
                 nome = "";
+                n++;
             }
         }
     }

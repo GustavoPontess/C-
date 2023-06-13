@@ -1,138 +1,113 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TP2Q04
+namespace TP2Q06
 {
     class Program
     {
         static void Main(string[] args)
         {
-            List<Jogador> jogadores = new List<Jogador>(new Jogador[20]);
+            Fila fila = new Fila();
+
             string leitura = Console.ReadLine();
-            int j = 0, n = 0;
+            int j = 0, u = 0;
             while (leitura != "FIM")
             {
                 Jogador jogador = new Jogador();
                 jogador.ler(leitura);
-                jogadores[n] = jogador;
+                fila.Inserir(jogador);
                 leitura = Console.ReadLine();
-                n++;
+                u++;
             }
             j = int.Parse(Console.ReadLine());
             for (int i = 0; i < j; i++)
             {
                 leitura = Console.ReadLine();
                 Jogador jogador = new Jogador();
-                string tipo = leitura.Substring(0, 2); ;
-                int pos = 0;
-                if (leitura[1] == '*')
+                char tipo = leitura[0];
+                switch (tipo)
                 {
-                    pos = int.Parse(leitura[3].ToString());
-                    if (leitura[0] == 'I')
-                    {
-                        jogador.ler(leitura.Substring(5));
-                        Inserir(jogador, pos, ref jogadores, ref n);
-                    }
-                    else
-                    {
-                        Remover(pos, ref jogadores, ref n);
-                    }
+                    case 'I':
+                        jogador.ler(leitura.Substring(1));
+                        fila.Inserir(jogador);
+                        break;
+                    case 'R':
+                        fila.Remover();
+                        break;
+                }
+            }
+
+            fila.Imprimir();
+
+        }
+
+        public class Celula
+        {
+            public Jogador elemento;
+            public Celula prox;
+
+            public Celula(Jogador jogador)
+            {
+                this.elemento = jogador;
+                this.prox = null;
+            }
+        }
+
+        public class Fila
+        {
+            private Celula primeiro;
+            private Celula ultimo;
+
+            public Fila()
+            {
+                this.primeiro = null;
+                this.ultimo = null;
+            }
+
+            public bool Vazia()
+            {
+                return primeiro == null;
+            }
+
+            public void Inserir(Jogador jogador)
+            {
+                Celula novaCelula = new Celula(jogador);
+                if (Vazia())
+                {
+                    primeiro = novaCelula;
+                    ultimo = novaCelula;
                 }
                 else
                 {
-                    switch (tipo)
-                    {
-                        case "II":
-                            jogador.ler(leitura.Substring(5));
-                            InserirI(jogador, ref jogadores, ref n);
-                            break;
-                        case "IF":
-                            jogador.ler(leitura.Substring(5));
-                            InserirF(jogador, ref jogadores, ref n);
-                            break;
-                        case "RI":
-                            RemoverI(ref jogadores, ref n);
-                            break;
-                        case "RF":
-                            RemoverF(ref jogadores, ref n);
-                            break;
-                        default:
-                            break;
-                    }
+                    ultimo.prox = novaCelula;
+                    ultimo = novaCelula;
                 }
             }
 
-            for (int i = 0; i < n; i++)
+            public Jogador Remover()
             {
-                jogadores[i].imprimir();
-            }
-        }
-        public static void InserirI(Jogador numero, ref List<Jogador> jogadores, ref int n)
-        {
-            if (n >= 20)
-            {
-                throw new Exception("Erro!");
-            }
-            //levar elementos para o fim do array
-            for (int i = n; i > 0; i--)
-            {
-                jogadores[i] = jogadores[i - 1];
-            }
-            jogadores[0] = numero;
-            n++;
-        }
-        public static void InserirF(Jogador numero, ref List<Jogador> jogadores, ref int n)
-        {
-            if (n >= 20)
-            {
-                throw new Exception("Erro!");
-            }
-            jogadores[n] = numero;
-            n++;
-        }
-        public static void Inserir(Jogador numero, int pos, ref List<Jogador> jogadores, ref int n)
-        {
-            if (n >= 20 || pos < 0 || pos > n)
-            {
-                throw new Exception("Erro!");
-            }
-            //levar elementos para o fim da lista
-            jogadores.Insert(pos, numero);
-            n++;
-        }
-        public static void RemoverI(ref List<Jogador> jogadores, ref int n)
-        {
-            if (n == 0)
-            {
-                throw new Exception("Erro!");
-            }
-            Jogador resp = jogadores[0];
-            n--;
-            for (int i = 0; i < n; i++)
-            {
-                jogadores[i] = jogadores[i + 1];
+                if (Vazia())
+                {
+                    throw new Exception("Erro!");
+                }
+
+                Jogador jogador = primeiro.elemento;
+                primeiro = primeiro.prox;
+                if (primeiro == null)
+                {
+                    ultimo = null;
+                }
+                return jogador;
             }
 
-        }
-        public static void RemoverF(ref List<Jogador> jogadores, ref int n)
-        {
-            if (n == 0)
+            public void Imprimir()
             {
-                throw new Exception("Erro!");
-            }
-            --n;
-        }
-        public static void Remover(int pos, ref List<Jogador> jogadores, ref int n)
-        {
-            if (n == 0 || pos < 0 || pos >= n)
-            {
-                throw new Exception("Erro!");
-            }
-            Jogador resp = jogadores[pos];
-            n--;
-            for (int i = pos; i < n; i++)
-            {
-                jogadores[i] = jogadores[i + 1];
+                Celula atual = primeiro;
+                while (atual != null)
+                {
+                    atual.elemento.imprimir();
+                    atual = atual.prox;
+                }
             }
         }
 
@@ -155,26 +130,32 @@ namespace TP2Q04
                 Console.Write(this.time[this.time.Length - 1]);
                 Console.WriteLine(')');
             }
+
             public void ler(string leitura)
             {
-                int i = 0, cont = 1; string data = "", time = "", numero = "";
+                int i = 0, cont = 1;
+                string data = "", time = "", numero = "";
+
                 while (leitura[i] != ',')
                 {
                     i++;
                 }
                 i++;
+
                 while (leitura[i] != ',')
                 {
                     nome += leitura[i];
                     i++;
                 }
                 i++;
+
                 while (leitura[i] != ',')
                 {
                     foto += leitura[i];
                     i++;
                 }
                 i++;
+
                 while (leitura[i] != ',')
                 {
                     data += leitura[i];
@@ -182,11 +163,13 @@ namespace TP2Q04
                 }
                 nascimento = DateTime.Parse(data);
                 i++;
+
                 while (leitura[i] != ',')
                 {
                     i++;
                 }
                 i++;
+
                 while (leitura[i] != ',')
                 {
                     numero += leitura[i];
@@ -194,11 +177,13 @@ namespace TP2Q04
                 }
                 id = int.Parse(numero);
                 i++;
+
                 while (leitura[i] != '[')
                 {
                     i++;
                 }
                 i++;
+
                 while (leitura[i] != ']')
                 {
                     time += leitura[i];
@@ -209,7 +194,9 @@ namespace TP2Q04
                     i++;
                 }
                 this.time = new int[cont];
-                numero = ""; i = 0;
+                numero = "";
+                i = 0;
+
                 for (int j = 0; j <= time.Length; j++)
                 {
                     if (j != time.Length)

@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace TP2Q04
+namespace TP2Q05
 {
     class Program
     {
         static void Main(string[] args)
         {
-            List<Jogador> jogadores = new List<Jogador>(new Jogador[20]);
+            Pilha pilha = new Pilha();
+
             string leitura = Console.ReadLine();
             int j = 0, n = 0;
             while (leitura != "FIM")
             {
                 Jogador jogador = new Jogador();
                 jogador.ler(leitura);
-                jogadores[n] = jogador;
+                pilha.InserirI(jogador);
                 leitura = Console.ReadLine();
                 n++;
             }
@@ -23,116 +23,80 @@ namespace TP2Q04
             {
                 leitura = Console.ReadLine();
                 Jogador jogador = new Jogador();
-                string tipo = leitura.Substring(0, 2); ;
-                int pos = 0;
-                if (leitura[1] == '*')
+                char tipo = leitura[0];
+                switch (tipo)
                 {
-                    pos = int.Parse(leitura[3].ToString());
-                    if (leitura[0] == 'I')
-                    {
-                        jogador.ler(leitura.Substring(5));
-                        Inserir(jogador, pos, ref jogadores, ref n);
-                    }
-                    else
-                    {
-                        Remover(pos, ref jogadores, ref n);
-                    }
-                }
-                else
-                {
-                    switch (tipo)
-                    {
-                        case "II":
-                            jogador.ler(leitura.Substring(5));
-                            InserirI(jogador, ref jogadores, ref n);
-                            break;
-                        case "IF":
-                            jogador.ler(leitura.Substring(5));
-                            InserirF(jogador, ref jogadores, ref n);
-                            break;
-                        case "RI":
-                            RemoverI(ref jogadores, ref n);
-                            break;
-                        case "RF":
-                            RemoverF(ref jogadores, ref n);
-                            break;
-                        default:
-                            break;
-                    }
+                    case 'I':
+                        jogador.ler(leitura.Substring(1));
+                        pilha.InserirI(jogador);
+                        break;
+                    case 'R':
+                        pilha.RemoverI();
+                        break;
                 }
             }
 
-            for (int i = 0; i < n; i++)
-            {
-                jogadores[i].imprimir();
-            }
-        }
-        public static void InserirI(Jogador numero, ref List<Jogador> jogadores, ref int n)
-        {
-            if (n >= 20)
-            {
-                throw new Exception("Erro!");
-            }
-            //levar elementos para o fim do array
-            for (int i = n; i > 0; i--)
-            {
-                jogadores[i] = jogadores[i - 1];
-            }
-            jogadores[0] = numero;
-            n++;
-        }
-        public static void InserirF(Jogador numero, ref List<Jogador> jogadores, ref int n)
-        {
-            if (n >= 20)
-            {
-                throw new Exception("Erro!");
-            }
-            jogadores[n] = numero;
-            n++;
-        }
-        public static void Inserir(Jogador numero, int pos, ref List<Jogador> jogadores, ref int n)
-        {
-            if (n >= 20 || pos < 0 || pos > n)
-            {
-                throw new Exception("Erro!");
-            }
-            //levar elementos para o fim da lista
-            jogadores.Insert(pos, numero);
-            n++;
-        }
-        public static void RemoverI(ref List<Jogador> jogadores, ref int n)
-        {
-            if (n == 0)
-            {
-                throw new Exception("Erro!");
-            }
-            Jogador resp = jogadores[0];
-            n--;
-            for (int i = 0; i < n; i++)
-            {
-                jogadores[i] = jogadores[i + 1];
-            }
+            pilha.Imprimir();
 
         }
-        public static void RemoverF(ref List<Jogador> jogadores, ref int n)
+
+        public class Celula
         {
-            if (n == 0)
+            public Jogador elemento;
+            public Celula prox;
+
+            public Celula(Jogador jogador)
             {
-                throw new Exception("Erro!");
+                this.elemento = jogador;
+                this.prox = null;
             }
-            --n;
         }
-        public static void Remover(int pos, ref List<Jogador> jogadores, ref int n)
+
+        public class Pilha
         {
-            if (n == 0 || pos < 0 || pos >= n)
+            private Celula topo;
+
+            public Pilha()
             {
-                throw new Exception("Erro!");
+                this.topo = null;
             }
-            Jogador resp = jogadores[pos];
-            n--;
-            for (int i = pos; i < n; i++)
+
+            public bool Vazia()
             {
-                jogadores[i] = jogadores[i + 1];
+                return topo == null;
+            }
+
+            public void InserirI(Jogador jogador)
+            {
+                Celula novaCelula = new Celula(jogador);
+                novaCelula.prox = topo;
+                topo = novaCelula;
+            }
+
+            public Jogador RemoverI()
+            {
+                if (Vazia())
+                {
+                    throw new Exception("Erro!");
+                }
+
+                Jogador jogador = topo.elemento;
+                topo = topo.prox;
+                return jogador;
+            }
+
+            public void Imprimir()
+            {
+                ImprimirRecursivo(topo);
+            }
+
+            private void ImprimirRecursivo(Celula celula)
+            {
+                if (celula != null)
+                {
+                    ImprimirRecursivo(celula.prox);
+                    celula.elemento.imprimir();
+                }
             }
         }
 
@@ -155,26 +119,32 @@ namespace TP2Q04
                 Console.Write(this.time[this.time.Length - 1]);
                 Console.WriteLine(')');
             }
+
             public void ler(string leitura)
             {
-                int i = 0, cont = 1; string data = "", time = "", numero = "";
+                int i = 0, cont = 1;
+                string data = "", time = "", numero = "";
+
                 while (leitura[i] != ',')
                 {
                     i++;
                 }
                 i++;
+
                 while (leitura[i] != ',')
                 {
                     nome += leitura[i];
                     i++;
                 }
                 i++;
+
                 while (leitura[i] != ',')
                 {
                     foto += leitura[i];
                     i++;
                 }
                 i++;
+
                 while (leitura[i] != ',')
                 {
                     data += leitura[i];
@@ -182,11 +152,13 @@ namespace TP2Q04
                 }
                 nascimento = DateTime.Parse(data);
                 i++;
+
                 while (leitura[i] != ',')
                 {
                     i++;
                 }
                 i++;
+
                 while (leitura[i] != ',')
                 {
                     numero += leitura[i];
@@ -194,11 +166,13 @@ namespace TP2Q04
                 }
                 id = int.Parse(numero);
                 i++;
+
                 while (leitura[i] != '[')
                 {
                     i++;
                 }
                 i++;
+
                 while (leitura[i] != ']')
                 {
                     time += leitura[i];
@@ -208,8 +182,11 @@ namespace TP2Q04
                     }
                     i++;
                 }
+
                 this.time = new int[cont];
-                numero = ""; i = 0;
+                numero = "";
+                i = 0;
+
                 for (int j = 0; j <= time.Length; j++)
                 {
                     if (j != time.Length)
